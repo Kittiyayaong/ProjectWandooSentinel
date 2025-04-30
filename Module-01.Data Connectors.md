@@ -49,5 +49,16 @@ Microsoft Sentinel에 데이터를 수집하고 통합하기 위해 사용되는
 1. Sentinel **Content Hub**로 이동하여, *Microsoft for Cloud*를 클릭하여 Install합니다.
    ![image](https://github.com/user-attachments/assets/fb7cd705-ed57-4fe3-94c5-879b96e18390)
 
-2. 
+2. Content Hub에서 *Microsoft for Cloud*를 클릭한 후, **Manage > Subscription-based Microsoft defender for cloud**를 클릭하여, **Open connect Page**를 클릭합니다.
+   ![image](https://github.com/user-attachments/assets/cf27b1fd-4a7c-4114-be02-1d5c2b1b1a61)
+
+3. 하단의 목록에서 원하는 구독을 선택하고 연결을 클릭합니다. 작업이 완료될 때까지 기다립니다. 커넥터에 양방향 동기화를 사용하도록 설정하면 두 제품 중 하나에서 Alerts/Incidents가 다른 제품에도 반영됩니다.
+   ![image](https://github.com/user-attachments/assets/56d0e6fa-e073-44f7-8c2c-94111c9b177b)
+
+4. 하단의 목록에서 원하는 구독을 선택하고 연결을 클릭합니다. 작업이 완료될 때까지 기다립니다. 커넥터에 양방향 동기화를 사용하도록 설정하면 두 제품 중 하나에서 닫힌 알림/인시던트가 다른 제품에도 반영됩니다.
+
+
+### Lab 3: Microsoft Defender Threat Intelligence connector
+이번 Lab에서는 Microsoft 위협 인텔리전스 지표를 자동으로 수집하여 '위협 인텔리전스 지표' 테이블로 수집하는 **Microsoft Defender 위협 인텔리전스**([MDTI](https://learn.microsoft.com/en-us/defender/threat-intelligence/what-is-microsoft-defender-threat-intelligence-defender-ti)) 커넥터를 Sentinel 작업 영역에 추가합니다. MDTI는 추가 비용 없이 일련의 지표와 https://ti.defender.microsoft.com 포털에 대한 액세스를 제공하며, 라이선스가 필요한 MDTI 포털 및 API의 프리미엄 기능을 제공합니다.
+
 

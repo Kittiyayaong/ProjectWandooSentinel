@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/7f008572-2b73-4c80-9bc4-3e981b9daf36)# Module 0 - Sentinel Lab 환경 설정 
+# Module 0 - Sentinel Lab 환경 설정 
 
 #### Prerequisites
 

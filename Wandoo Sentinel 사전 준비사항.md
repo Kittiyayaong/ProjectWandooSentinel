@@ -6,7 +6,7 @@ Microsoft Sentinel을 시작하려면 Microsoft Azure 구독이 있어야 합니
 
 - Azure Subscription
 - Azure Subscription에서 리소스 그룹을 만들 수 있는 권한
-- Note: Subscription에서 처음으로 Sentinel을 설치하려면 Subscription Contributo/ Owner 권한이 필요합니다.
+- Note: Subscription에서 처음으로 Sentinel을 설치하려면 Subscription Contribution/ Owner 권한이 필요합니다.
 
 Microsoft Sentinel은 작업 공간에 처음 추가된 경우 처음 31일 동안 하루 최대 10GB의 데이터를 무료로 수집할 수 있는 '평가판 모드'를 제공합니다. Sentinel이 설치되면 평가판 모드임을 알리는 메시지가 표시됩니다.
 

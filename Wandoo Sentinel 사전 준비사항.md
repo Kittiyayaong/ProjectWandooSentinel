@@ -49,7 +49,7 @@ Microsoft Sentinel은 작업 공간에 처음 추가된 경우 처음 31일 동�
 1. Azure portal에서 **Resource group**을 확인합니다.
    ![image](https://github.com/user-attachments/assets/60377d0c-bf2e-4308-a6e4-3c8369b17586)
 
-2. List에서 API COnnection resource, **azuresentinel-Get-GeoFromIpAndTagIncident**를 클릭합니다.
+2. List에서 API Connection resource, **azuresentinel-Get-GeoFromIpAndTagIncident**를 클릭합니다.
    ![image](https://github.com/user-attachments/assets/10c3915b-ef9d-4d5c-afb5-95c5ee9d8654)
 
 3. **API Connection > General > Edit API Connection**을 클릭

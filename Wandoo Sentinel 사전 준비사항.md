@@ -1,6 +1,6 @@
 # Module 0 - Sentinel Lab 환경 설정 
 
-#### Prerequisites
+### Prerequisites
 
 Microsoft Sentinel을 시작하려면 Microsoft Azure 구독이 있어야 합니다. 구독이 없는 경우 무료 계정[여기](https://azure.microsoft.com/en/free)에 등록할 수 있습니다.
 

@@ -16,7 +16,7 @@ Microsoft Sentinel은 작업 공간에 처음 추가된 경우 처음 31일 동�
 2.  Search bar에서 **Sentinel** 검색 후 **Microsoft Sentienl**클릭
    ![image](https://github.com/user-attachments/assets/f3822ef1-7e6c-4de4-a0c9-926ffc7db670)
 
-3. Sentinel > + Create > + Create a new Workspace로 새로운 workspace를 생성합니다.
+3. Sentinel > + Create > + Create a new Workspace로 새로운 workspace를 생성
    ![image](https://github.com/user-attachments/assets/606bcb23-6949-4d76-8803-a1c4cf5df847)
 
 4. Log Analytics Workspace 페이지에서 정보 기입 후 생성
@@ -39,10 +39,8 @@ Microsoft Sentinel은 작업 공간에 처음 추가된 경우 처음 31일 동�
 3. 정보 기입 후, **Review + Create** 클릭하여 생성 
    ![image](https://github.com/user-attachments/assets/f88d8b9a-37cd-4923-9df1-4a10ca7a66de)
 
-4. 배포 프로세스는 수집된 모든 데이터를 완료한 후 바로 사용할 수 있도록 준비되는 과정이 포함되며, 15분 정도 소요됩니다. Azure portal에서 **Sentinel**을 검색 후, List에서 생성한 Sentinel을 클릭합니다.
-
 > ⭐ Tips: <br>
-> 데시보드에서 수집된 데이터와 몇 가지 최근 인시던트를 볼 수 있습니다.인시던트가 발생하는 데 몇 분 정도 걸릴 수 있습니다.
+> 배포 프로세스는 수집된 모든 데이터를 완료한 후 바로 사용할 수 있도록 준비되는 과정이 포함되며, 15분 정도 소요됩니다. Azure portal에서 **Sentinel**을 검색 후, List에서 생성한 Sentinel을 클릭하면, 데시보드에서 수집된 데이터와 몇 가지 최근 인시던트를 볼 수 있습니다.인시던트가 발생하는 데 몇 분 정도 걸릴 수 있습니다.
 
 ![image](https://github.com/user-attachments/assets/188650ff-d3ab-4060-b856-22aee22f4b79)
 

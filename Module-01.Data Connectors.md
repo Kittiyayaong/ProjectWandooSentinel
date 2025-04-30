@@ -61,4 +61,18 @@ Microsoft Sentinel에 데이터를 수집하고 통합하기 위해 사용되는
 ### Lab 3: Microsoft Defender Threat Intelligence connector
 이번 Lab에서는 Microsoft 위협 인텔리전스 지표를 자동으로 수집하여 '위협 인텔리전스 지표' 테이블로 수집하는 **Microsoft Defender 위협 인텔리전스**([MDTI](https://learn.microsoft.com/en-us/defender/threat-intelligence/what-is-microsoft-defender-threat-intelligence-defender-ti)) 커넥터를 Sentinel 작업 영역에 추가합니다. MDTI는 추가 비용 없이 일련의 지표와 https://ti.defender.microsoft.com 포털에 대한 액세스를 제공하며, 라이선스가 필요한 MDTI 포털 및 API의 프리미엄 기능을 제공합니다.
 
+1. Sentinel Content hub로 이동하여, **Threat Intelligence**를 찾아 **Install**합니다.
+   ![image](https://github.com/user-attachments/assets/73881b1b-4ac5-44b9-b27b-9d8eba711b46)
+
+2. Deployment 후, **Manage** 버튼을 클릭합니다.
+   ![image](https://github.com/user-attachments/assets/47a17369-b79d-46cf-ad21-f0ffc560e210)
+
+3. *Microsoft Defender Threat Intelligence* connector를 클릭한 후, **Open Connector Page**로 이동합니다.
+   ![image](https://github.com/user-attachments/assets/34a19de0-8c24-4664-8c8e-84b6cc1c2eb0)
+
+4. Import indicator에 **All Available**로 설정하여 Connect를 진행합니다.
+   ![image](https://github.com/user-attachments/assets/ac6c8b78-e2ac-4d79-8d14-87ca8eecdfc4)
+
+5. 이 과정을 통해 위협 인텔리전스 지표가 `ThreatIntelligenceIndicator` 테이블에 수집되기 시작합니다. 
+
 

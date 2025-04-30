@@ -2,7 +2,7 @@
 
 ### Prerequisites
 
-Microsoft Sentinel을 시작하려면 Microsoft Azure 구독이 있어야 합니다. 구독이 없는 경우 무료 계정[여기](https://azure.microsoft.com/en/free)에 등록할 수 있습니다.
+Microsoft Sentinel을 시작하려면 Microsoft Azure 구독이 있어야 합니다. 구독이 없는 경우 무료 계정을 [여기](https://azure.microsoft.com/en/free)에서 등록할 수 있습니다.
 
 - Azure Subscription
 - Azure Subscription에서 리소스 그룹을 만들 수 있는 권한

@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/20769cd1-5c37-44dc-9b2d-dd58dde5e62f)# Module 2. Analytics Rules
+# Module 2. Analytics Rules
 
 ## Anlytics Rule이란?
 Sentinel analytic rule은 Microsoft Sentinel에서 보안 위협을 탐지하고 대응하기 위해 사용하는 규칙입니다. 이 규칙은 로그 데이터를 분석하여 의심스러운 활동을 식별하고, 이를 기반으로 경고를 생성합니다. Sentinel analytic rule은 다양한 유형의 규칙을 포함하며, 사용자 정의 규칙을 생성할 수도 있습니다

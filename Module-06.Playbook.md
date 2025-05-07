@@ -70,3 +70,64 @@ Microsoft Sentinel에서 Playbook이란, 보안 인시던트 발생 시 자동�
 3. 정보를 기입한 후, Create하여 완료합니다. 
 
  <img src="https://github.com/user-attachments/assets/ff50cc64-e59b-4e33-94b3-911287a0ebaf" width="600">
+
+### Lab 2. MFA 우회 탐지 시 자동 Teams 알림 보내기
+
+ <img src="https://github.com/user-attachments/assets/8f5709e0-1668-4654-9d2a-465cbe83823a" width="600">
+
+1. Analytics Rule:Unfamiliar sign-in properties 감지 룰 만들기: Sentinel > Anlytics > Creat > **Scheduled query rule**
+   
+ <img src="https://github.com/user-attachments/assets/0590b1db-7324-474a-9f7f-fa71691f5afe" width="600">
+
+2. Name: Unfamiliar sign-in properties로 설정
+
+ <img src="https://github.com/user-attachments/assets/416786b0-431d-4659-9810-d6f60625af6e" width="600">
+
+3. 하단 Query를 넣어 진행합니다. 
+
+ ```powershell
+let threshold = 5;
+let timeRange = 1d;
+SigninLogs
+| where TimeGenerated >= ago(timeRange)
+| where ResultType == 0 // 성공적인 로그인 시도
+| where AuthenticationRequirement == "multiFactorAuthentication"
+| where AuthenticationRequirement != "multiFactorAuthentication"
+| summarize Count = count() by UserPrincipalName, IPAddress, Location
+| where Count >= threshold
+| join kind=inner (
+    SigninLogs
+    | where TimeGenerated >= ago(timeRange)
+    | where ResultType == 0 // 성공적인 로그인 시도
+    | where AuthenticationRequirement == "multiFactorAuthentication"
+    | summarize Count = count() by UserPrincipalName, IPAddress, Location
+) on UserPrincipalName
+| project UserPrincipalName, IPAddress, Location, Count
+
+ ```
+
+* 변수 설정:
+  * let threshold = 5;: 특정 기간 동안의 로그인 시도 횟수 기준을 설정합니다. 여기서는 5회 이상 로그인 시도를 기준으로 합니다.
+  * let timeRange = 1d;: 쿼리가 검색할 시간 범위를 설정합니다. 여기서는 지난 1일 동안의 로그를 검색합니다.
+ 
+* 로그인 로그 필터링:
+  * SigninLogs | where TimeGenerated >= ago(timeRange): 지난 1일 동안의 로그인 로그를 필터링합니다.
+  * where ResultType == 0: 성공적인 로그인 시도만 필터링합니다.
+  * where AuthenticationRequirement == "multiFactorAuthentication": MFA가 요구된 로그인 시도를 필터링합니다.
+  * where AuthenticationRequirement != "multiFactorAuthentication": MFA가 요구되지 않은 로그인 시도를 필터링합니다.
+
+* 로그인 시도 요약:
+  * summarize Count = count() by UserPrincipalName, IPAddress, Location: 사용자, IP 주소, 위치별로 로그인 시도 횟수를 요약합니다.
+  * where Count >= threshold: 로그인 시도 횟수가 설정된 기준(threshold) 이상인 경우만 필터링합니다.
+
+* 로그인 시도 비교:
+  * join kind=inner (SigninLogs | where TimeGenerated >= ago(timeRange) | where ResultType == 0 | where AuthenticationRequirement == "multiFactorAuthentication" | summarize Count = count() by UserPrincipalName, IPAddress, Location) on UserPrincipalName: MFA가 요구된 로그인 시도와 비교하여 우회 시도를 탐지합니다.
+
+* 결과 출력:
+  * project UserPrincipalName, IPAddress, Location, Count: 사용자 이름, IP 주소, 위치, 로그인 시도 횟수를 출력합니다.
+ 
+4. Logic App Playbook 생성: Sentinel > Automation > + Add > Blank Playbook > Consumtion >
+
+ <img src="https://github.com/user-attachments/assets/445dfae2-9508-4b79-b6ec-0d4ead67c09a" width="600">
+
+5. 

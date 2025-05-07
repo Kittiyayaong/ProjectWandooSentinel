@@ -7,6 +7,7 @@
 [Wandoo Sentinel HoL 사전 환경 설정](https://github.com/Kittiyayaong/ProjectWandooSentinel/blob/main/Wandoo%20Sentinel%20%EC%82%AC%EC%A0%84%20%EC%A4%80%EB%B9%84%EC%82%AC%ED%95%AD.md)
 
 ## Modules
+![image](https://github.com/user-attachments/assets/5cf2cdc7-f90e-4166-b87f-5653c279d33c)
 
 1. [Module 01. Data Connectors](https://github.com/Kittiyayaong/ProjectWandooSentinel/blob/main/Module-01.Data%20Connectors.md)
    * Lab 1. Azure Activity Connector

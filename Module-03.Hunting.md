@@ -41,7 +41,7 @@
  <img src="https://github.com/user-attachments/assets/3e243902-1636-4028-b6df-78961c3e8c36" width="600"/>
 
 > ✅ Watchlist란?
-> Microsoft Sentinel의 **Watchlist(감시 목록)**는 보안 운영팀이 주기적으로 참조해야 할 중요한 사용자, IP, 장치, 도메인, 해시값 등의 목록을 저장하고 분석 규칙에서 쉽게 참조할 수 있도록 도와주는 기능입니다.
+> Microsoft Sentinel의 **Watchlist**는 보안 운영팀이 주기적으로 참조해야 할 중요한 사용자, IP, 장치, 도메인, 해시값 등의 목록을 저장하고 분석 규칙에서 쉽게 참조할 수 있도록 도와주는 기능입니다.
 
 > ✅ 주요 활용 시나리오
 >   * 감시 대상 사용자/그룹 설정 (VIP, 퇴사 예정자 등)

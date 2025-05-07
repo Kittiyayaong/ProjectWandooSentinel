@@ -164,3 +164,12 @@ SigninLogs
 13. Save 하여 완료합니다.
   <img src="https://github.com/user-attachments/assets/b84527ff-beab-4772-9461-82b05811ae07" width="600">
 
+14. Logic App Playbook: Sentinal > Analytics > Automation > + Create > Playbook with alert Trigger
+
+  <img src="https://github.com/user-attachments/assets/a17bb37d-1a75-4a65-9518-383bb21fcc42" width="600">
+
+15. Basic 정보를 기입합니다.
+
+  <img src="https://github.com/user-attachments/assets/55025180-e8cc-4441-8285-3810f0b67a97" width="600">
+
+

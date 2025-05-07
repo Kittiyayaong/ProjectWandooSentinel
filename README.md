@@ -13,21 +13,21 @@
    * Lab 2. Microsoft Defender for Cloud Data Connector
    * Lab 3: Microsoft Defender Threat Intelligence connector
      
-2. [Module 02. Analytic Rules]
+2. [Module 02. Analytic Rules](https://github.com/Kittiyayaong/ProjectWandooSentinel/blob/main/Module-02.Anlytics%20Rules.md)
    * Lab 1. Azure Activity rule 활성화
    * Lab 2. Microsoft Defender for Cloud에 대한 Microsoft 인시던트 만들기 규칙
      
-3. [Module 03. Hunting]
+3. [Module 03. Hunting](https://github.com/Kittiyayaong/ProjectWandooSentinel/blob/main/Module-03.Hunting.md)
    * Lab 1. 특정 MITRE 기법 찾기
    * Lab 2. Bookmark 지정하기
      
-4. [Module 04. Watchlist]
+4. [Module 04. Watchlist](https://github.com/Kittiyayaong/ProjectWandooSentinel/blob/main/Module-04.Watchlists.md)
    * Lab 1. Watchlist 생성하기
    * Lab 2. 분석 규칙에 IP 주소 화이트리스트 추가하기 (Watchlist를 활용한 실전 탐지 자동화(Analytics Rule)**로 연결하기)
      
-5. [Module 05. UEBA]
+5. [Module 05. UEBA](https://github.com/Kittiyayaong/ProjectWandooSentinel/blob/main/Module-05.UEBA.md)
    * Lab 1. UEBA 활성화하기
      
-6. [Module 06. Playbook]
+6. [Module 06. Playbook](https://github.com/Kittiyayaong/ProjectWandooSentinel/blob/main/Module-06.Playbook.md)
    * Lab 1. Playbook 만들기
    * Lab 2. MFA 우회 탐지 시 자동 Teams 알림 보내기

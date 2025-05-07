@@ -126,8 +126,41 @@ SigninLogs
 * 결과 출력:
   * project UserPrincipalName, IPAddress, Location, Count: 사용자 이름, IP 주소, 위치, 로그인 시도 횟수를 출력합니다.
  
-4. Logic App Playbook 생성: Sentinel > Automation > + Add > Blank Playbook > Consumtion >
-
+4. Logic App Playbook 생성: Azure portal > Logic Apps > Add > Consumtion 
+   
  <img src="https://github.com/user-attachments/assets/445dfae2-9508-4b79-b6ec-0d4ead67c09a" width="600">
 
-5. 
+5. Create해서 완료합니다. 
+
+6. Logic app 리스트에서 새로생성된 Logic Apps를 클릭 > Development Tools > Logic app Designer > trigger 추가 > Sentinel alert를 선택
+
+ <img src="https://github.com/user-attachments/assets/cf4bb382-b1e1-4eb6-b2ff-e5a3b32b90c8" width="600">
+
+7. Logic App이 Sentinel Alert 발생을 트리거로 감지하기위해, Sentinel에 접근할 수 있는 권한이 필요합니다.
+
+ <img src="https://github.com/user-attachments/assets/d35abe64-2a56-4527-9330-119268b97fcc" width="600">
+
+ <img src="https://github.com/user-attachments/assets/6ffc62a3-3353-4323-b41f-1a8986190ba7" width="600">
+
+8. Action을 추가합니다
+
+ <img src="https://github.com/user-attachments/assets/36b05e08-c8a9-4fa4-a5bf-e925f5119d72" width="600">
+
+10. action 항목에서 Teams > Post message 항목을 추가합니다. 
+ <img src="https://github.com/user-attachments/assets/36b05e08-c8a9-4fa4-a5bf-e925f5119d72" width="600">
+
+11. Sentinel과 동일하게 Teams 로그인을 합니다. 
+
+ <img src="https://github.com/user-attachments/assets/973c6a3d-81a1-45e8-89a3-9c1c0198ca64" width="600">
+
+12. Teams 채널 메시지 내용을 설정합니다. 예를 들어, Alert 세부 정보를 포함합니다
+ * Post As: 메시지를 게시할 주체를 선택합니다. 현재 "Flow bot"으로 설정되어 있습니다.
+ * Post In: 메시지를 게시할 위치를 선택합니다. 예를 들어, 특정 Teams 채널을 선택할 수 있습니다.
+ * Parameters 탭: 메시지의 내용을 설정할 수 있는 탭입니다. 여기서 Alert 세부 정보를 포함한 메시지를 구성할 수 있습니다.
+
+   <img src="https://github.com/user-attachments/assets/8d17caa5-797a-4b1e-a777-a7b3706bc794" width="600">
+   <img src="https://github.com/user-attachments/assets/8d99a8af-68a8-4b63-af93-69d00770300d" width="600">
+
+13. Save 하여 완료합니다.
+  <img src="https://github.com/user-attachments/assets/b84527ff-beab-4772-9461-82b05811ae07" width="600">
+

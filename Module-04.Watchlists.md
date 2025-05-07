@@ -20,7 +20,7 @@
 4. 생성 이후 5분 후에 Watchlist에 올라오게됩니다.
 
 
-### Lab 2. 분석 규칙에 IP 주소 화이트리스트 추가하기 (Watchlist를 활용한 실전 탐지 자동화(Analytics Rule)**로 연결하기)
+### Lab 2. 분석 규칙에 IP 주소 화이트리스트 추가하기 (Watchlist를 활용한 실전 탐지 자동화(Analytics Rule)로 연결하기)
 
 1. Contents Hub에서 **High count of connection**을 클릭하여 install합니다.
 

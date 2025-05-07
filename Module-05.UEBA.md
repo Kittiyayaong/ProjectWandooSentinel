@@ -1,6 +1,6 @@
 # Module 05.UEBA
 
-## Lab 1. UEBA 활성화하기 
+### Lab 1. UEBA 활성화하기 
 
 1. Sentinel > Settings > 두번째 Tab Settings 클릭하여 UEBA 설정 확인
 

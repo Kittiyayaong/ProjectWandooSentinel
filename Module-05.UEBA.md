@@ -25,4 +25,7 @@
 
      <img src="https://github.com/user-attachments/assets/1ea1e32a-a3c1-4b6e-b689-17c10d32196a" width="1000">
 
+>  ✅ Tips
+> UEBA는 **알림(Alert)**을 바로 생성하지는 않고, 엔터티에 대한 Risk Score 증가 / 타임라인 표시로 반영됨
+> Alert로 활용하려면 → Fusion / custom Analytics Rule과 결합 필요
 

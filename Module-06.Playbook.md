@@ -104,7 +104,11 @@ SigninLogs
  
 4. Logic App Playbook 생성: Azure portal > Logic Apps > Add > Consumtion 
    
- <img src="https://github.com/user-attachments/assets/445dfae2-9508-4b79-b6ec-0d4ead67c09a" width="600">
+ <img src="https://github.com/user-attachments/assets/f08b8ac0-c673-4c30-94cf-bf15d9e87ef8" width="600">
+
+> ✅ Tips
+
+> Sentinel과 Logic App의 Region이 일치해야합니다.
 
 5. Create해서 완료합니다. 
 
@@ -168,6 +172,10 @@ SigninLogs
 
   <img src="https://github.com/user-attachments/assets/a9309694-b3c2-4ae1-a8ee-67a74f88448a" width="600">
 
+18. Sentinel이 어떤 Resource Group의 Logic App들을 실행해도 되는지 지정하는 단계로 Microsoft Sentinel에서 특정 리소스 그룹(Resource Group)에 포함된 Logic App(Playbook)을 실행할 수 있도록 권한을 위임합니다.
+
+  <img src="https://github.com/user-attachments/assets/4d36a305-6e54-4161-9aad-42a0e8a527f1" width="600">
+
 17. Sentinel > Configuration > analytics > 기존에 생성한 **Unfamiliar sign-in properties**을 클릭한다.
     
 > ✅ Tips.
@@ -176,7 +184,7 @@ SigninLogs
 
   <img src="https://github.com/user-attachments/assets/f473ca44-202c-499b-8005-ab2bfa0034db" width="600">
 
-18. **Automated response**에서 **Add new**를 클릭해서 automation rule을 설정합니다.
+18. **Automated response**에서 **Add new**를 클릭해서 automation rule을 설정합니다. name 설정 후, Sentinel Alert / Logic App을 추가하여 설정 완료합니다. 
 
-
+  <img src="https://github.com/user-attachments/assets/10ac09d6-9276-4bae-b656-98579e4e9fac" width="600">
 

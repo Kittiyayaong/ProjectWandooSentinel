@@ -162,14 +162,39 @@ SigninLogs
    <img src="https://github.com/user-attachments/assets/8d99a8af-68a8-4b63-af93-69d00770300d" width="600">
 
 13. Save 하여 완료합니다.
+
   <img src="https://github.com/user-attachments/assets/b84527ff-beab-4772-9461-82b05811ae07" width="600">
 
-14. Logic App Playbook: Sentinal > Analytics > Automation > + Create > Playbook with alert Trigger
+14. **Logic App에 Sentinel 권한 부여**: Logic app > Identity > System assigned > Status: On으로 변경
 
-  <img src="https://github.com/user-attachments/assets/a17bb37d-1a75-4a65-9518-383bb21fcc42" width="600">
+  <img src="https://github.com/user-attachments/assets/fc58cae3-3f5f-4456-8bb1-2cae19ca759e" width="600">
 
-15. Basic 정보를 기입합니다.
+15. **Sentinel Workspace에 권한 부여**:  Sentinel > Settings > Workspace settings > Access control(IAM) > + Add > Add role assignment
 
-  <img src="https://github.com/user-attachments/assets/55025180-e8cc-4441-8285-3810f0b67a97" width="600">
+  <img src="https://github.com/user-attachments/assets/62b6e69b-2b56-4b0e-a196-67407962207f" width="600">
+
+16. 방금 활성화한 Logic App의 Managed Identity 선택
+
+  <img src="https://github.com/user-attachments/assets/a9309694-b3c2-4ae1-a8ee-67a74f88448a" width="600">
+
+> ✅ Tips.
+> Logic App (Playbook)에 일반적으로 할당하는 권한은 Sentinel Responder입니다.
+만약 Logic App이 리소스를 생성하거나 Sentinel 설정을 변경해야 한다면 Contributor가 필요합니다.
+
+| 역할 이름                    | 설명                      | 주요 권한                                                   | 권한 수준     | 추천 대상                 |
+| ------------------------ | ----------------------- | ------------------------------------------------------- | --------- | --------------------- |
+| **Sentinel Contributor** | Sentinel 리소스 구성 및 관리 가능 | - Analytics rule 생성/편집<br>- Playbook 연결<br>- 데이터 커넥터 설정 | 전체 관리 권한  | Sentinel 관리자, 보안 아키텍트 |
+| **Sentinel Responder**   | 인시던트에 대응 가능             | - 인시던트 주석/할당/종료<br>- Playbook 실행<br>- 인시던트 상태 변경        | 제한적 쓰기 권한 | SOC 분석가, 보안 담당자       |
+| **Sentinel Reader**      | Sentinel 리소스 읽기 전용      | - 인시던트 보기<br>- Analytics rule 보기<br>- 데이터 열람            | 읽기 전용     | 보안 감사관, 보고용 사용자       |
+
+17. Sentinel > Configuration > analytics > 기존에 생성한 **Unfamiliar sign-in properties**을 클릭한다.
+    
+> ✅ Tips.
+>  Azure Logic App에서 만든 test용 Playbook은 Microsoft Sentinel의 Analytics rule을 통해 연결되어야 자동으로 동작합니다. Alert에 연동된 Automation rule이 실행 된 후, Playbook을 트리거하도록 연결합니다.
+
+  <img src="https://github.com/user-attachments/assets/f473ca44-202c-499b-8005-ab2bfa0034db" width="600">
+
+18. **Automated response**에서 **Add new**를 클릭해서 automation rule을 설정합니다.
+
 
 

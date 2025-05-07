@@ -1,4 +1,4 @@
-# Module 3. hunting
+# Module 4. hunting
 
 ## 🔎 Sentinel의 "Hunting"이란?
 룰에 안 걸리는 고급 공격을 직접 찾기 위한 위협 탐지 도구 세트

@@ -24,11 +24,11 @@
 
 1. Contents Hub에서 **High count of connection**을 클릭하여 install합니다.
 
-     <img src="https://github.com/user-attachments/assets/9ca3a4e1-7397-4161-9758-3ee587a860f7" width="600">
+  <img src="https://github.com/user-attachments/assets/9ca3a4e1-7397-4161-9758-3ee587a860f7" width="600">
 
 2. install이 완료된 후, **Create rue**을 클릭합니다.
 
-     <img src="https://github.com/user-attachments/assets/0756ce76-c861-4995-afb5-90518fd375cd" width="600">
+  <img src="https://github.com/user-attachments/assets/0756ce76-c861-4995-afb5-90518fd375cd" width="600">
 
 3. 다음 KQL 문을 추가해서 "TestIPaddress" Watchlist에서 필드를 가져옵니다.
  
@@ -37,14 +37,15 @@ let TestIPaddress= _GetWatchlist('TestIPaddress') | project SearchKey ;
 W3CIISLog
 | where cIP in (TestIPaddress)
  ```
-     <img src="![image](https://github.com/user-attachments/assets/6e625729-6268-48b6-867d-f60fba86ed2d)
-" width="600">
+
+![image](https://github.com/user-attachments/assets/ed066ff0-5f77-4f03-a31b-ee5b9aa2cd3a)
+
 
 4. 이제 클라이언트 IP 주소(cIP 필드)가 감시 목록의 IP 주소 중 하나와 일치하는 레코드를 삭제하기위해where 문을 추가합니다.
  ```powershell 
 | where cIP in (TestIPaddress)
  ```
-     <img src="https://github.com/user-attachments/assets/9a95ada0-4352-4096-92fe-24831ceead13" width="600">
+   <img src="https://github.com/user-attachments/assets/9a95ada0-4352-4096-92fe-24831ceead13" width="600">
 
 5. Save하여 완료합니다.
 

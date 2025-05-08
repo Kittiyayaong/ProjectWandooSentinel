@@ -31,21 +31,22 @@
  ```powershell
 let threshold = 5;
 let timeRange = 1d;
-SigninLogs
-| where TimeGenerated >= ago(timeRange)
-| where ResultType == 0 // 성공적인 로그인 시도
-| where AuthenticationRequirement == "multiFactorAuthentication"
-| where AuthenticationRequirement != "multiFactorAuthentication"
-| summarize Count = count() by UserPrincipalName, IPAddress, Location
-| where Count >= threshold
-| join kind=inner (
-    SigninLogs
-    | where TimeGenerated >= ago(timeRange)
-    | where ResultType == 0 // 성공적인 로그인 시도
-    | where AuthenticationRequirement == "multiFactorAuthentication"
-    | summarize Count = count() by UserPrincipalName, IPAddress, Location
-) on UserPrincipalName
-| project UserPrincipalName, IPAddress, Location, Count
+let mfa_signins = SigninLogs
+  | where TimeGenerated >= ago(timeRange)
+  | where ResultType == 0
+  | where AuthenticationRequirement == "multiFactorAuthentication"
+  | summarize MFA_Count = count() by UserPrincipalName;
+
+let non_mfa_signins = SigninLogs
+  | where TimeGenerated >= ago(timeRange)
+  | where ResultType == 0
+  | where AuthenticationRequirement != "multiFactorAuthentication"
+  | summarize NonMFA_Count = count() by UserPrincipalName;
+
+non_mfa_signins
+| join kind=inner mfa_signins on UserPrincipalName
+| where NonMFA_Count >= threshold
+| project UserPrincipalName, NonMFA_Count, MFA_Count
 
  ```
 

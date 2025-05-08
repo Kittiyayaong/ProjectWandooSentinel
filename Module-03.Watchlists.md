@@ -30,16 +30,13 @@
 
   <img src="https://github.com/user-attachments/assets/0756ce76-c861-4995-afb5-90518fd375cd" width="600">
 
-3. 다음 KQL 문을 추가해서 "TestIPaddress" Watchlist에서 필드를 가져옵니다.
+3. 다음 KQL 문을 추가해서 "TestIPaddress" Watchlist에서 필드를 가져옵니다. (let문 가장 하단에 추가하시면 됩니다.)
  
  ```powershell
 let TestIPaddress= _GetWatchlist('TestIPaddress') | project SearchKey ;
 W3CIISLog
 | where cIP in (TestIPaddress)
  ```
-
-![image](https://github.com/user-attachments/assets/ed066ff0-5f77-4f03-a31b-ee5b9aa2cd3a)
-
 
 4. 이제 클라이언트 IP 주소(cIP 필드)가 감시 목록의 IP 주소 중 하나와 일치하는 레코드를 삭제하기위해where 문을 추가합니다.
  ```powershell 

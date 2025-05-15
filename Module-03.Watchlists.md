@@ -7,7 +7,7 @@
   <img src="https://github.com/user-attachments/assets/ca57c4ea-8025-4475-855b-74af09d69afe" width="600">
 
 2. 정보를 기입합니다.
-     * Name: PenTestsIPaddresses
+     * Name: TestsIPaddresses
      * Description: IP addresses used during penetration tests
      * Watchlist Alias: PenTestIPaddresses
 

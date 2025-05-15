@@ -9,7 +9,7 @@
 2. 정보를 기입합니다.
      * Name: TestsIPaddresses
      * Description: IP addresses used during penetration tests
-     * Watchlist Alias: PenTestIPaddresses
+     * Watchlist Alias: TestIPaddresses
 
     <img src="https://github.com/user-attachments/assets/8c73ce24-088f-41eb-9296-ecfbef61f826" width="600">
 

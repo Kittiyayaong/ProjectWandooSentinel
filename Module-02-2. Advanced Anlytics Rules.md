@@ -6,9 +6,18 @@
 고위험 사용자 계정이 Azure 리소스를 연속으로 삭제하고,  
 Microsoft Defender for Cloud에서 보안 경고가 발생한 경우 Sentinel이 이를 탐지하고 대응한다.
 
+| 구분        | Lab 1: Azure Activity 탐지     | Lab 2: MDC 경고 승격                 |
+| --------- | ---------------------------- | -------------------------------- |
+| **탐지 방식** | Sentinel이 직접 쿼리              | Defender가 탐지 후 Sentinel이 수신      |
+| **대상 로그** | Azure Activity 로그            | Defender for Cloud Alerts        |
+| **활용 기술** | KQL, 엔터티 매핑, 스케줄링            | Microsoft Incident Creation Rule |
+| **목표**    | 내부 위협 행위 탐지                  | 외부/시스템 기반 위협 수신 및 대응             |
+| **공통점**   | Incident 생성 + 자동화 태깅으로 대응 연계 |                                  |
+
+
 ---
 
-## Lab 1: Azure Activity 기반 Analytics Rule
+## Lab 1: Azure Activity 기반 Analytics Rule (Azure 내부에서 발생하는 관리 작업(예: 리소스 삭제)을 Sentinel이 직접 탐지)
 
 ### 목적
 Azure Activity 로그에서 동일 사용자가 다수의 리소스 그룹을 삭제한 경우 탐지하여 Alert 및 Incident 생성
@@ -99,7 +108,7 @@ Logic App을 활용해 이후 이메일 알림, 계정 비활성화 등 SOAR 자
 
 ---
 
-## Lab 2: Microsoft Incident Creation Rule
+## Lab 2: Microsoft Incident Creation Rule (Defender for Cloud에서 이미 발생한 보안 경고를 Sentinel에서 받아들여 Incident로 승격)
 
 ### 목적
 Microsoft Defender for Cloud(MDC)에서 생성된 중간 또는 높은 심각도 경고를 Sentinel Incident로 승격하고 태그 자동 부여

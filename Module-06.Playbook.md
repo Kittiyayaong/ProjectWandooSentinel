@@ -1,4 +1,4 @@
-<img width="1405" height="720" alt="image" src="https://github.com/user-attachments/assets/ed921161-09ef-49ef-8bdc-99d0601a651b" /># Module 05. Playbook
+# Module 05. Playbook
 
 ## 목적 
 Microsoft Sentinel의 Playbook (Logic App) 기능을 활용하여, 경고(Alert) 발생 시 자동 대응할 수 있는 자동화된 워크플로우 구축을 익히는 것이 목표입니다.
@@ -126,23 +126,17 @@ non_mfa_signins
   
 8. Action을 추가합니다
 
-  <img width="600" alt="image" src="https://github.com/user-attachments/assets/6251f05e-3325-4e79-931c-424493a69bf4" />
+    <img width="600" alt="image" src="https://github.com/user-attachments/assets/6251f05e-3325-4e79-931c-424493a69bf4" />
 
 9. Save 하여 완료합니다.
 
-  <img src="https://github.com/user-attachments/assets/b84527ff-beab-4772-9461-82b05811ae07" width="600">
+10. **Logic App에 Sentinel 권한 부여**: Logic app > Identity > System assigned > Status: On으로 변경
 
-14. **Logic App에 Sentinel 권한 부여**: Logic app > Identity > System assigned > Status: On으로 변경
+    <img src="https://github.com/user-attachments/assets/fc58cae3-3f5f-4456-8bb1-2cae19ca759e" width="600">
 
-  <img src="https://github.com/user-attachments/assets/fc58cae3-3f5f-4456-8bb1-2cae19ca759e" width="600">
-
-15. **Sentinel Workspace에 권한 부여**:  Sentinel > Settings > Workspace settings > Access control(IAM) > + Add > Add role assignment
-
-  <img src="https://github.com/user-attachments/assets/62b6e69b-2b56-4b0e-a196-67407962207f" width="600">
-
-16. Role을 부여햡니다.
+11. **Sentinel Workspace에 권한 부여**: Sentinel > Access control(IAM) > + Add > Add role assignment에서 Role을 부여햡니다.
  
-  <img src="https://github.com/user-attachments/assets/7235ab3f-7abb-4808-884f-ac62c3f0f47c" width="600">
+    <img src="https://github.com/user-attachments/assets/7235ab3f-7abb-4808-884f-ac62c3f0f47c" width="600">
 
 > ✅ Tips.
 
@@ -155,15 +149,15 @@ non_mfa_signins
 | **Sentinel Responder**   | 인시던트에 대응 가능             | - 인시던트 주석/할당/종료<br>- Playbook 실행<br>- 인시던트 상태 변경        | 제한적 쓰기 권한 | SOC 분석가, 보안 담당자       |
 | **Sentinel Reader**      | Sentinel 리소스 읽기 전용      | - 인시던트 보기<br>- Analytics rule 보기<br>- 데이터 열람            | 읽기 전용     | 보안 감사관, 보고용 사용자       |
 
-17. 방금 활성화한 Logic App의 Managed Identity 선택 > Assign 합니다.
+12. 방금 활성화한 Logic App의 Managed Identity 선택 > Assign 합니다.
 
-  <img src="https://github.com/user-attachments/assets/a9309694-b3c2-4ae1-a8ee-67a74f88448a" width="600">
+  <img width="398" height="481" alt="image" src="https://github.com/user-attachments/assets/21322d1b-e908-4dac-b41c-59c653f12205" />
 
-18. Sentinel이 어떤 Resource Group의 Logic App들을 실행해도 되는지 지정하는 단계로 Microsoft Sentinel에서 특정 리소스 그룹(Resource Group)에 포함된 Logic App(Playbook)을 실행할 수 있도록 권한을 위임합니다.
+13. Sentinel이 어떤 Resource Group의 Logic App들을 실행해도 되는지 지정하는 단계로 Microsoft Sentinel에서 특정 리소스 그룹(Resource Group)에 포함된 Logic App(Playbook)을 실행할 수 있도록 권한을 위임합니다.
 
   <img src="https://github.com/user-attachments/assets/4d36a305-6e54-4161-9aad-42a0e8a527f1" width="300">
 
-17. Sentinel > Configuration > analytics > 기존에 생성한 **Unfamiliar sign-in properties**을 클릭한다.
+17. Sentinel > Configuration > analytics > 기존에 생성한 **Unfamiliar sign-in properties**을 클릭합니다.
     
 > ✅ Tips.
 

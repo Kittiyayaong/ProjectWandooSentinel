@@ -157,17 +157,17 @@ non_mfa_signins
 
   <img src="https://github.com/user-attachments/assets/4d36a305-6e54-4161-9aad-42a0e8a527f1" width="300">
 
-17. Sentinel > Configuration > analytics > 기존에 생성한 **Unfamiliar sign-in properties**을 클릭합니다.
+14. Sentinel > Configuration > analytics > 기존에 생성한 **Unfamiliar sign-in properties**을 클릭합니다.
     
 > ✅ Tips.
 
 > Azure Logic App에서 만든 test용 Playbook은 Microsoft Sentinel의 Analytics rule을 통해 연결되어야 자동으로 동작합니다. Alert에 연동된 Automation rule이 실행 된 후, Playbook을 트리거하도록 연결합니다.
 
-  <img src="https://github.com/user-attachments/assets/f473ca44-202c-499b-8005-ab2bfa0034db" width="600">
 
-18. **Automated response**에서 **Add new**를 클릭해서 automation rule을 설정합니다. name 설정 후, Sentinel Alert / Logic App을 추가하여 설정 완료합니다. 
+15. sentinel> automaion에서 **Create** 클릭해서 automation rule을 설정합니다. 
+* Name: wandoo automation rule
+* Trigger: Sentinel Alert 
+* 생성한 Logic App을 추가 
 
-  <img src="https://github.com/user-attachments/assets/10ac09d6-9276-4bae-b656-98579e4e9fac" width="600">
-
-19. Validate 후에 Save합니다.
+16. Validate 후에 Save합니다.
 

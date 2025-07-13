@@ -169,5 +169,4 @@ Sentinel의 **`Automation rules`**는 **인시던트가 생성되었을 때 조�
 
   <img src="https://github.com/user-attachments/assets/749620ed-0d4e-43d4-83b6-c2ed41198a0a" width="600"/>
 
-
-### 🔗 [다음 Lab으로 이동하기 »](https://github.com/Kittiyayaong/ProjectWandooSentinel/blob/main/Module-02-2.%20Advanced%20Anlytics%20Rules.md)
+### ✅ 다음 Lab: [Module 2-2. Analytics Rule & Microsoft Incident Creation Rule](https://github.com/Kittiyayaong/ProjectWandooSentinel/blob/main/Module-02-2.%20Advanced%20Anlytics%20Rules.md)

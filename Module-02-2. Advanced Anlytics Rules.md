@@ -1,4 +1,4 @@
-# Module 2-1. Analytics Rule & Microsoft Incident Creation Rule
+# Module 2-2. Analytics Rule & Microsoft Incident Creation Rule
 
 ## 시나리오 개요
 

@@ -123,6 +123,5 @@ scWin32Status_Hex =~ "8009030C", "SEC_E_LOGON_DENIED",
 5. Save하여 완료합니다.
 
 
-### 🔗 [다음 Lab으로 이동하기 »](https://github.com/Kittiyayaong/ProjectWandooSentinel/blob/main/Module-04.Hunting.md)
-
+### ✅ 다음 Lab: [Module 4. hunting](https://github.com/Kittiyayaong/ProjectWandooSentinel/blob/main/Module-04.Hunting.md)
 

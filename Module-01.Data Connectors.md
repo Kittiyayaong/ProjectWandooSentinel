@@ -1,12 +1,15 @@
 # Module 01. Data Connector
 
 ## Data Connector란? 
-Microsoft Sentinel에 데이터를 수집하고 통합하기 위해 사용되는 도구입니다. 이를 통해 다양한 데이터 소스에서 데이터를 가져와 Sentinel에서 분석하고 모니터링할 수 있습니다.
+Sentinel은 로그를 직접 수집하지 않고, Data Connector를 통해 Log Analytics Workspace에 데이터를 수집하고, 해당 데이터를 기반으로 분석, 탐지, 자동화 대응 등을 수행합니다.
 
 ### Lab 1. Azure Activity Connector
 
+#### 목적: Azure 리소스의 활동 로그 (Activity Log) 를 Sentinel에 수집하기 ➔ 누가, 언제, 어떤 리소스를 생성/변경/삭제했는지 파악 가능
+
 > ❗ Note: <br>
 > 이번 Lab은 Azure subscription에 대한 *Reader* 이상의 권한이 필요합니다.
+
 
 1. Azure portal > Sentinel > Content Hub > Azure Activity 선택 후 Install
    ![image](https://github.com/user-attachments/assets/4134ab4f-a581-4124-8ce3-9468c902e292)
@@ -42,6 +45,8 @@ Microsoft Sentinel에 데이터를 수집하고 통합하기 위해 사용되는
 
 ### Lab 2. Microsoft Defender for Cloud Data Connector
 
+#### 목적: Defender for Cloud의 보안 경고(Security Alerts)와 보안 상태(Posture)를 Sentinel에 통합
+
 > ❗ Note: <br>
 > 이번 Lab은 Azure subscription에 대한 *Security Reader* 이상의 권한이 필요합니다.
 > Defender for Cloud enable해야합니다.
@@ -60,6 +65,8 @@ Microsoft Sentinel에 데이터를 수집하고 통합하기 위해 사용되는
 
 ### Lab 3: Microsoft Defender Threat Intelligence connector
 이번 Lab에서는 Microsoft 위협 인텔리전스 지표를 자동으로 수집하여 '위협 인텔리전스 지표' 테이블로 수집하는 **Microsoft Defender 위협 인텔리전스**([MDTI](https://learn.microsoft.com/en-us/defender/threat-intelligence/what-is-microsoft-defender-threat-intelligence-defender-ti)) 커넥터를 Sentinel 작업 영역에 추가합니다. MDTI는 추가 비용 없이 일련의 지표와 https://ti.defender.microsoft.com 포털에 대한 액세스를 제공하며, 라이선스가 필요한 MDTI 포털 및 API의 프리미엄 기능을 제공합니다.
+
+#### 목적: Microsoft Threat Intelligence 데이터(악성 IP, 도메인, 해시 등)를 Sentinel에 수집하여 위협 탐지 및 헌팅에 활용
 
 1. Sentinel Content hub로 이동하여, **Threat Intelligence**를 찾아 **Install**합니다.
    ![image](https://github.com/user-attachments/assets/73881b1b-4ac5-44b9-b27b-9d8eba711b46)

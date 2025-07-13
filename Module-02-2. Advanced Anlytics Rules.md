@@ -174,3 +174,6 @@ Microsoft Sentinel > Configuration > Analytics > + Create > Microsoft incident c
 - https://learn.microsoft.com/en-us/azure/sentinel/create-incidents-from-microsoft-alerts
 - https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azureactivity
 - https://learn.microsoft.com/en-us/azure/defender-for-cloud/alerts-overview
+
+
+### 🔗 [다음 Lab으로 이동하기 »]()

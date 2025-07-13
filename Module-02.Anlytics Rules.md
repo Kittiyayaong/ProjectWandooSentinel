@@ -1,7 +1,7 @@
 # Module 2. Analytics Rules
 
 ## Anlytics Rule이란?
-Sentinel analytic rule은 Microsoft Sentinel에서 보안 위협을 탐지하고 대응하기 위해 사용하는 규칙입니다. 이 규칙은 로그 데이터를 분석하여 의심스러운 활동을 식별하고, 이를 기반으로 경고를 생성합니다. Sentinel analytic rule은 다양한 유형의 규칙을 포함하며, 사용자 정의 규칙을 생성할 수도 있습니다
+Sentinel에서 수집한 로그 데이터를 바탕으로 위협 탐지, 경고(Alert) 생성, 자동화된 대응을 가능하게 해주는 탐지 규칙 세트입니다. 
 
 * Sentinel analytic rule에서 제공하는 기능
    *	로그 분석: Kusto Query Language(KQL)를 사용하여 로그 데이터를 분석하고, 특정 패턴이나 이상 징후를 탐지합니다.
@@ -9,20 +9,33 @@ Sentinel analytic rule은 Microsoft Sentinel에서 보안 위협을 탐지하고
    *	자동화된 대응: 경고에 대한 자동화된 대응을 설정하여, 반복적인 작업을 줄이고 대응 시간을 단축할 수 있습니다.
    *	사용자 정의 규칙: 조직의 특정 요구에 맞게 사용자 정의 규칙을 생성할 수 있습니다.
 
+---
+
 ### Lab 1. Azure Activity rule 활성화 
 
+### 목적
+* Azure 환경에서 발생한 의심스러운 리소스 배포(Suspicious Resource deployment) 를 탐지
+* 탐지된 이벤트를 경고(Alert)로 만들고, 인시던트로 승격
+* 이후 대응을 자동화하는 기반 마련
+
+### 핵심 구성요소
+* Rule Template: Suspicious Resource deployment 사용
+* Rule Logic: 기본 제공 KQL 사용
+* Entity Mapping, Event Grouping, Incident Grouping 설정
+* Alert → Incident → 대응 흐름 구성
+
 1. **Sentinel > Configuration > Analytics**로 이동하여 중간 탭인 **Rule templates**를 클릭합니다.
-   
+
   <img src="https://github.com/user-attachments/assets/0f47d76b-aa37-46d9-a265-28c2b8c7367a" width="600"/>
 
-2. **+ add filter**를 클릭하여, **Source name**을 *Azure Activity*로 필터를 생성합니다.
-   <img src="https://github.com/user-attachments/assets/b6cd194d-63c0-46c6-b7af-2726d1cbf09f" width="600"/>
+3. **+ add filter**를 클릭하여, **Source name**을 *Azure Activity*로 필터를 생성합니다.
+  <img src="https://github.com/user-attachments/assets/b6cd194d-63c0-46c6-b7af-2726d1cbf09f" width="600"/>
 
 4.  *Suspicious Resource deployment* 템플릿을 찾아, 우측 (...)을 클릭하고, 오른쪽 패널에서 간단한 요약 설명을 확인합니다. Default parameter를 그대로 사용하여 **Create Rule**를 클릭합니다.
- 
-   <img src="https://github.com/user-attachments/assets/ab561db7-0bee-40da-a109-ef24617a4792" width="600"/>
 
-5. **Analytics Rule Wizard**의 첫 페이지에서 규칙이 사용됨으로 설정되어 있는지 확인한 후, **Set rule logic**을 클릭합니다.
+  <img width="600" alt="image" src="https://github.com/user-attachments/assets/624d73e4-ec48-4834-b1fb-433d1142d68a" />
+
+5. **Analytics Rule Wizard**의 첫 페이지에서 규칙이 **enabled(사용됨)**으로 설정되어 있는지 확인한 후, **Set rule logic**을 클릭합니다.
 
   <img src="https://github.com/user-attachments/assets/d39c306a-c3a0-48ac-8b1a-50ceab4baa7e" width="600"/>
 
@@ -115,11 +128,6 @@ Sentinel analytic rule은 Microsoft Sentinel에서 보안 위협을 탐지하고
 > ✅ **해결책**: 관련된 여러 Alert를 **자동으로 묶어서 하나의 Incident로 그룹핑**  
 > → 공격의 "전개 흐름"을 한 눈에 보고 대응 가능
 
-> 🧷 비유하자면..
->   - 개별 Alert = CCTV에서 찍힌 사진 한 장
->   - Grouping된 Incident = 침입범의 동선을 담은 **전체 영상 클립**
-
-
 7. 설정 완료 후 Save하여 생성합니다.
 
    <img src="https://github.com/user-attachments/assets/704a50e9-fc55-40b8-a7bb-c8b3d8680f35" width="600"/>
@@ -135,7 +143,7 @@ Microsoft Sentinel은 클라우드 네이티브 SIEM이므로 경고 및 이벤�
 
 1. Sentinel > Configuration > Analytics > 상단에 +Create > Microsoft incident creation rule 클릭합니다. 
 
-   <img src="https://github.com/user-attachments/assets/e396bc25-d125-4d63-9967-4c7c2d4b4a3a" width="600"/>
+  <img src="https://github.com/user-attachments/assets/e396bc25-d125-4d63-9967-4c7c2d4b4a3a" width="600"/>
 
 2. General 설정합니다.
    * name: test -  MDC  Medium and High Alerts
@@ -143,8 +151,7 @@ Microsoft Sentinel은 클라우드 네이티브 SIEM이므로 경고 및 이벤�
      * Microsoft security service: MDC 선택
      * Severity Custom하여 Mid/High로 선택 
 
-   <img src="![image](https://github.com/user-attachments/assets/9926e1b0-eb97-4d7a-80f8-a4fb04bb8a98)
-" width="600"/>
+  <img width="600" alt="image" src="https://github.com/user-attachments/assets/ab719b51-b98e-41fe-a229-a8ee66821bf1" />
 
 3. Automated response를 설정합니다.
 
@@ -156,9 +163,11 @@ Sentinel의 **`Automation rules`**는 **인시던트가 생성되었을 때 조�
   * Conditions: Severity > equals >  High
   * Action: Add tag - HighRiskVM
 
-   <img src="https://github.com/user-attachments/assets/da5b7123-f12b-4750-a8b8-246200fcfe1b" width="600"/>
+  <img src="https://github.com/user-attachments/assets/da5b7123-f12b-4750-a8b8-246200fcfe1b" width="600"/>
 
 4. **Review and create**를 통해 Save 합니다.
 
-      <img src="https://github.com/user-attachments/assets/749620ed-0d4e-43d4-83b6-c2ed41198a0a" width="600"/>
+  <img src="https://github.com/user-attachments/assets/749620ed-0d4e-43d4-83b6-c2ed41198a0a" width="600"/>
 
+
+### 🔗 [다음 Lab으로 이동하기 »](https://github.com/Kittiyayaong/ProjectWandooSentinel/blob/main/Module-03.Watchlists.md)

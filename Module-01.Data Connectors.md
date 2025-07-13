@@ -83,4 +83,4 @@ Sentinel은 로그를 직접 수집하지 않고, Data Connector를 통해 Log A
 5. 이 과정을 통해 위협 인텔리전스 지표가 `ThreatIntelligenceIndicator` 테이블에 수집되기 시작합니다. 
 
 
-✅ 다음 Lab: [Module 2-1. Analytics Rules Basic](https://github.com/Kittiyayaong/ProjectWandooSentinel/blob/main/Module-02-1.%20Basic%20Anlytics%20Rules.md)
+### ✅ 다음 Lab: [Module 2-1. Analytics Rules Basic](https://github.com/Kittiyayaong/ProjectWandooSentinel/blob/main/Module-02-1.%20Basic%20Anlytics%20Rules.md)

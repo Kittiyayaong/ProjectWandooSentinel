@@ -1,23 +1,55 @@
-# Module 05. Playbook
+<img width="1405" height="720" alt="image" src="https://github.com/user-attachments/assets/ed921161-09ef-49ef-8bdc-99d0601a651b" /># Module 05. Playbook
+
+## 목적 
+Microsoft Sentinel의 Playbook (Logic App) 기능을 활용하여, 경고(Alert) 발생 시 자동 대응할 수 있는 자동화된 워크플로우 구축을 익히는 것이 목표입니다.
+
+## Lab 정리
+| 단계    | 목적                                                                   |
+| ----- | -------------------------------------------------------------------- |
+| Lab 1 | Logic App(Playbook) 생성 방법 학습 및 Hosting Plan 차이 이해                    |
+| Lab 2 | Sentinel Analytics Rule 기반 Alert 발생 시, Teams에 자동 알림 전송하는 Playbook 구성 |
+
+---
 
 ### Lab 1. Playbook 만들기
 
+#### 목적
+Logic App이 어떻게 만들어지는지와, 어떤 Hosting Plan을 선택해야 하는지 학습
+
+#### 설정하기
 1. Sentinel > Automation에서 신규 **Blank playbook**를 생성합니다. 
 
   <img src="https://github.com/user-attachments/assets/9f7be2eb-12a9-4e81-97eb-784f0e97505d" width="1000">
 
 2. **Consumption**을 클릭합니다.
-   
  <img src="https://github.com/user-attachments/assets/577d3c42-9e4f-4b01-9650-caf3e9a1bcc8" width="1000">
+
+> ⭐ Consumption 정리
+> 
+> | 항목              | **Multi-tenant** (✅ Sentinel 추천)        | Workflow Service Plan       | App Service Environment v3 | Hybrid                |
+> | --------------- | --------------------------------------- | --------------------------- | -------------------------- | --------------------- |
+> | **호스팅 유형**      | Consumption 기반 (공유형)                    | 전용 워크플로 인스턴스                | 전용 App Service 환경          | 자체 관리형 (K8s 등)        |
+> | **컴퓨트**         | Shared                                  | Dedicated                   | Dedicated                  | Customer managed      |
+> | **네트워크**        | Public Cloud                            | VNET 연동 가능                  | VNET 연동 가능                 | 로컬 네트워크 (온프레미스 포함)    |
+> | **요금**          | 사용량 기반 Pay-per-operation 💰저렴           | Plan 인스턴스 기준                | App Service 인스턴스 기준        | Kubernetes 클러스터 자원 기준 |
+> | **스케일링**        | 자동 (소형 워크플로 적합)                         | 더 많은 기능, 확장성↑               | 고성능 전용 환경                  | 고급 하이브리드 시나리오         |
+> | **Sentinel 연동** | ✅ 가장 일반적, Playbook에 적합                  | ❌ 과도함                       | ❌ 과도함                      | ❌ 특수 목적용              |
+> | **추천 용도**       | Sentinel 자동화, 이메일/Teams 알림, 간단한 트리거 자동화 | 기업 내부 시스템 자동화 (많은 병렬 처리 필요) | 완전 격리된 고성능 환경 필요할 때        | 멀티클라우드/온프레미스 통합 필요할 때 |
 
 3. 정보를 기입한 후, Create하여 완료합니다. 
 
- <img src="https://github.com/user-attachments/assets/ff50cc64-e59b-4e33-94b3-911287a0ebaf" width="600">
+  <img width="600" alt="image" src="https://github.com/user-attachments/assets/c82108b0-47c9-41eb-ac15-9eafb0ab441f" />
+
+---
 
 ### Lab 2. MFA 우회 탐지 시 자동 Teams 알림 보내기
 
- <img src="https://github.com/user-attachments/assets/8f5709e0-1668-4654-9d2a-465cbe83823a" width="600">
+#### 목적
+* Sentinel Analytics Rule 기반 탐지 설정 익히기
+* 탐지된 경고를 트리거로 Logic App을 자동 실행시키고, Microsoft Teams로 대응 알림 전송하기
+* Logic App에 필요한 권한 부여 및 Sentinel 연동 방법 이해
 
+#### 설정하기
 1. Analytics Rule:Unfamiliar sign-in properties 감지 룰 만들기: Sentinel > Anlytics > Creat > **Scheduled query rule**
    
  <img src="https://github.com/user-attachments/assets/0590b1db-7324-474a-9f7f-fa71691f5afe" width="600">
@@ -71,8 +103,10 @@ non_mfa_signins
   * project UserPrincipalName, IPAddress, Location, Count: 사용자 이름, IP 주소, 위치, 로그인 시도 횟수를 출력합니다.
  
 4. Logic App Playbook 생성: Azure portal > Logic Apps > Add > Consumtion 
-   
- <img src="https://github.com/user-attachments/assets/f08b8ac0-c673-4c30-94cf-bf15d9e87ef8" width="600">
+
+   <img width="600" alt="image" src="https://github.com/user-attachments/assets/2699f9c3-c92a-47b6-b93f-da103febff3b" />
+
+   <img src="https://github.com/user-attachments/assets/f08b8ac0-c673-4c30-94cf-bf15d9e87ef8" width="600">
 
 > ✅ Tips
 
@@ -82,34 +116,19 @@ non_mfa_signins
 
 6. Logic app 리스트에서 새로생성된 Logic Apps를 클릭 > Development Tools > Logic app Designer > trigger 추가 > Sentinel alert를 선택
 
- <img src="https://github.com/user-attachments/assets/cf4bb382-b1e1-4eb6-b2ff-e5a3b32b90c8" width="600">
+   <img src="https://github.com/user-attachments/assets/cf4bb382-b1e1-4eb6-b2ff-e5a3b32b90c8" width="600">
 
 7. Logic App이 Sentinel Alert 발생을 트리거로 감지하기위해, Sentinel에 접근할 수 있는 권한이 필요합니다.
 
- <img src="https://github.com/user-attachments/assets/d35abe64-2a56-4527-9330-119268b97fcc" width="600">
+   <img src="https://github.com/user-attachments/assets/d35abe64-2a56-4527-9330-119268b97fcc" width="600">
 
- <img src="https://github.com/user-attachments/assets/6ffc62a3-3353-4323-b41f-1a8986190ba7" width="600">
-
+   <img src="https://github.com/user-attachments/assets/6ffc62a3-3353-4323-b41f-1a8986190ba7" width="600">
+  
 8. Action을 추가합니다
 
- <img src="https://github.com/user-attachments/assets/36b05e08-c8a9-4fa4-a5bf-e925f5119d72" width="600">
+  <img width="600" alt="image" src="https://github.com/user-attachments/assets/6251f05e-3325-4e79-931c-424493a69bf4" />
 
-10. action 항목에서 Teams > Post message 항목을 추가합니다. 
- <img src="https://github.com/user-attachments/assets/36b05e08-c8a9-4fa4-a5bf-e925f5119d72" width="600">
-
-11. Sentinel과 동일하게 Teams 로그인을 합니다. 
-
- <img src="https://github.com/user-attachments/assets/973c6a3d-81a1-45e8-89a3-9c1c0198ca64" width="600">
-
-12. Teams 채널 메시지 내용을 설정합니다. 예를 들어, Alert 세부 정보를 포함합니다
- * Post As: 메시지를 게시할 주체를 선택합니다. 현재 "Flow bot"으로 설정되어 있습니다.
- * Post In: 메시지를 게시할 위치를 선택합니다. 예를 들어, 특정 Teams 채널을 선택할 수 있습니다.
- * Parameters 탭: 메시지의 내용을 설정할 수 있는 탭입니다. 여기서 Alert 세부 정보를 포함한 메시지를 구성할 수 있습니다.
-
-   <img src="https://github.com/user-attachments/assets/8d17caa5-797a-4b1e-a777-a7b3706bc794" width="600">
-   <img src="https://github.com/user-attachments/assets/8d99a8af-68a8-4b63-af93-69d00770300d" width="600">
-
-13. Save 하여 완료합니다.
+9. Save 하여 완료합니다.
 
   <img src="https://github.com/user-attachments/assets/b84527ff-beab-4772-9461-82b05811ae07" width="600">
 

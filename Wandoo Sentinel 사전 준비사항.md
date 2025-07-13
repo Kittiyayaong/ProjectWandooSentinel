@@ -36,7 +36,7 @@ Microsoft Sentinel은 작업 공간에 처음 추가된 경우 처음 31일 동�
 2. Create 클릭
    ![image](https://github.com/user-attachments/assets/fc39afe1-c24d-4998-9b9a-d99126a2b04b)
 
-3. 정보 기입 후, **Review + Create** 클릭하여 생성
+3. Lab 1에서 생성한 workspace에 생성
 
 > ⭐ Tips: <br>
 > 배포 프로세스는 수집된 모든 데이터를 완료한 후 바로 사용할 수 있도록 준비되는 과정이 포함되며, 15분 정도 소요됩니다. Azure portal에서 **Sentinel**을 검색 후, List에서 생성한 Sentinel을 클릭하면, 데시보드에서 수집된 데이터와 몇 가지 최근 인시던트를 볼 수 있습니다.인시던트가 발생하는 데 몇 분 정도 걸릴 수 있습니다.

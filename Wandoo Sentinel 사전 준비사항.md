@@ -36,7 +36,7 @@ Microsoft Sentinel은 작업 공간에 처음 추가된 경우 처음 31일 동�
 2. Create 클릭
    ![image](https://github.com/user-attachments/assets/fc39afe1-c24d-4998-9b9a-d99126a2b04b)
 
-3. 정보 기입 후, **Review + Create** 클릭하여 생성 
+3. 정보 기입 후, **Review + Create** 클릭하여 생성
    ![image](https://github.com/user-attachments/assets/f88d8b9a-37cd-4923-9df1-4a10ca7a66de)
 
 > ⭐ Tips: <br>

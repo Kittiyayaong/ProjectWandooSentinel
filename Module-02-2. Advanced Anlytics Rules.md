@@ -42,6 +42,7 @@ AzureActivity
 ```
 
 #### 3. Entity Mapping
+
 | Field             | Entity Type |
 |------------------|-------------|
 | Caller            | Account     |
@@ -62,6 +63,7 @@ AzureActivity
      
 * Event Grouping
   * 권장: “Group all events into a single alert” – 반복 이벤트를 하나로 묶어 알림 피로 줄이기
+    
 | 옵션                                 | 설명 |
 |--------------------------------------|------|
 | Group all events into a single alert | 여러 이벤트를 하나의 Alert로 묶음 (기본값, 노이즈 줄이기 유리) |

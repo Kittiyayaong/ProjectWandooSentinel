@@ -42,9 +42,50 @@ UEBA에서 수집된 사용자 행동 데이터를 기반으로, 수상한 사�
 회사 내부에서 로그인 실패가 급격히 늘어난 사용자가 이후 로그인에 성공하고, 이어서 권한 변경 및 SPN Key 등록을 시도한 것으로 보임.  
 이 사용자가 공격자인지 UEBA 타임라인으로 추적합니다.
 
-### 🔹 실습 절차
+### 사전 설정 
 
-1. Sentinel > **Entity Behavior** 메뉴 이동  
+1. contencts hub에서 `Entra ID` 설치하여 dataconnector에 올라오는지 확인
+2. 테스트용 analytics rule 생성
+   * 목적: Microsoft Entra ID의 로그인 실패 이벤트를 기반으로 Analytics Rule 생성 → 경고 발생 → Entity Behavior에서 사용자 확인
+   * 설정위치 : Sentinel > Analytics > + Create ➝ Scheduled rule
+   * 설정내용
+
+| 항목              | 설정값                           |
+| --------------- | ----------------------------- |
+| **Name**        | `Test - Failed Sign-in Alert` |
+| **Description** | 테스트용 경고 생성 (UEBA용)            |
+| **Tactics**     | `Credential Access`           |
+| **Severity**    | `Low` (테스트 목적)                |
+| **Status**      | Enabled ✅                     |
+
+* Rule Query 설정 (KQL)
+    * 최근 1시간 동안 로그인 실패 (ResultType != 0)
+    * 엔터티 매핑 필드 설정: AccountCustomEntity, IPCustomEntity → UEBA에서 사용자, IP로 표시됨
+
+       ```kql
+        SigninLogs
+        | where ResultType != 0
+        | where TimeGenerated > ago(1h)
+        | extend timestamp = TimeGenerated, AccountCustomEntity = UserPrincipalName, IPCustomEntity = IPAddress
+        ```
+
+    * Entity mapping & Query scheduling
+
+| Entity Type | Identifier          |
+| ----------- | ------------------- |
+| **Account** | `UserPrincipalName` |
+| **IP**      | `IPAddress`         |
+
+| 항목                            | 값                  |
+| ----------------------------- | ------------------ |
+| **Lookup data from the last** | 1 hour             |
+| **Run query every**           | 5 minutes (또는 10분) |
+
+
+
+### 실습 절차 
+
+1. Sentinel > Threat management > **Entity Behavior** 메뉴 이동  
 2. 목록에서 Risk Score가 높은 사용자를 선택
 3. 우측 패널에서 `Timeline` 탭 클릭
 4. 타임라인을 통해 다음 항목 확인:

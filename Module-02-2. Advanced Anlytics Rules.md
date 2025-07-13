@@ -133,5 +133,4 @@ Microsoft Sentinel > Configuration > Analytics > + Create > Microsoft incident c
 * Condition: Severity equals High
 * Action: Add Tag → HighSeverityFromMDC
 
-
-### 🔗 [다음 Lab으로 이동하기 »](https://github.com/Kittiyayaong/ProjectWandooSentinel/blob/main/Module-03.Watchlists.md)
+### ✅ 다음 Lab: [Module 3.Watchlists](https://github.com/Kittiyayaong/ProjectWandooSentinel/blob/main/Module-03.Watchlists.md)

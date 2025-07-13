@@ -77,4 +77,4 @@ Microsoft Sentinel에 데이터를 수집하고 통합하기 위해 사용되는
 
 
 
-### 🔗 [다음 Lab으로 이동하기 »]()
+### 🔗 [다음 Lab으로 이동하기 »](https://github.com/Kittiyayaong/ProjectWandooSentinel/blob/main/Module-01.Data%20Connectors.md)

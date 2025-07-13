@@ -84,4 +84,4 @@ Sentinel은 로그를 직접 수집하지 않고, Data Connector를 통해 Log A
 
 
 
-### 🔗 [다음 Lab으로 이동하기 »](https://github.com/Kittiyayaong/ProjectWandooSentinel/blob/main/Module-01.Data%20Connectors.md)
+### 🔗 [다음 Lab으로 이동하기 »](https://github.com/Kittiyayaong/ProjectWandooSentinel/blob/main/Module-02.Anlytics%20Rules.md)

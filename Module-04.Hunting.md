@@ -170,4 +170,5 @@ DeviceProcessEvents
  <img src="https://github.com/user-attachments/assets/5776d9f1-ee51-4b94-8905-a0255a97ad0d" width="600"/>
 
 
-### 🔗 [다음 Lab으로 이동하기 »](https://github.com/Kittiyayaong/ProjectWandooSentinel/blob/main/Module-04.Hunting.md)
+
+### ✅ 다음 Lab: [Module 05.UEBA](https://github.com/Kittiyayaong/ProjectWandooSentinel/blob/main/Module-05.UEBA.md)

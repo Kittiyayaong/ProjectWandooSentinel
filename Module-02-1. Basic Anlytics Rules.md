@@ -1,4 +1,4 @@
-# Module 2. Analytics Rules
+# Module 2-1. Analytics Rules Basic
 
 ## Anlytics Rule이란?
 Sentinel에서 수집한 로그 데이터를 바탕으로 위협 탐지, 경고(Alert) 생성, 자동화된 대응을 가능하게 해주는 탐지 규칙 세트입니다. 

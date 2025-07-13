@@ -46,6 +46,11 @@ Sentinel 내에서 특정 데이터(예: IP, 사용자, 해시 등)를 참조 �
 
 1. Contents Hub에서 **High count of connection**을 클릭하여 install합니다.
 
+> ⭐Tips. High count of connection
+> 
+> Microsoft Sentinel의 분석 규칙 템플릿(Analytics Rule Template) 중 하나로,
+"특정 IP 또는 클라이언트가 단시간에 과도하게 많은 연결을 시도하는" 이상행위를 탐지하기 위한 룰입니다.
+
   <img src="https://github.com/user-attachments/assets/9ca3a4e1-7397-4161-9758-3ee587a860f7" width="600">
 
 2. install이 완료된 후, **Create rue**을 클릭합니다.
@@ -59,12 +64,63 @@ let TestIPaddress= _GetWatchlist('TestIPaddress') | project SearchKey ;
 W3CIISLog
 | where cIP in (TestIPaddress)
  ```
+> ⭐Tips. KQL문 내용
+>
+> Microsoft Sentinel의 Watchlist에 등록된 IP 목록을 불러와, W3CIISLog (웹 서버 접속 로그)에서 해당 목록에 포함된 IP만 필터링하는 쿼리입니다.
 
-4. 이제 클라이언트 IP 주소(cIP 필드)가 감시 목록의 IP 주소 중 하나와 일치하는 레코드를 삭제하기위해where 문을 추가합니다.
+4. 이제 클라이언트 IP 주소(cIP 필드)가 감시 목록의 IP 주소 중 하나와 일치하는 레코드를 삭제하기위해 where 문을 추가합니다.
  ```powershell 
 | where cIP in (TestIPaddress)
  ```
    <img src="https://github.com/user-attachments/assets/9a95ada0-4352-4096-92fe-24831ceead13" width="600">
+
+* 전문
+ ```powershell
+let timeBin = 10m;
+let portThreshold = 30;
+let TestIPaddress= _GetWatchlist('TestIPaddress') | project SearchKey ;
+W3CIISLog
+| where cIP in (TestIPaddress)
+| extend scStatusFull = strcat(scStatus, ".",scSubStatus)
+// Map common IIS codes
+| extend scStatusFull_Friendly = case(
+scStatusFull == "401.0", "Access denied.",
+scStatusFull == "401.1", "Logon failed.",
+scStatusFull == "401.2", "Logon failed due to server configuration.",
+scStatusFull == "401.3", "Unauthorized due to ACL on resource.",
+scStatusFull == "401.4", "Authorization failed by filter.",
+scStatusFull == "401.5", "Authorization failed by ISAPI/CGI application.",
+scStatusFull == "403.0", "Forbidden.",
+scStatusFull == "403.4", "SSL required.",
+"See - https://support.microsoft.com/help/943891/the-http-status-code-in-iis-7-0-iis-7-5-and-iis-8-0")
+// Mapping to Hex so can be mapped using website in comments above
+| extend scWin32Status_Hex = tohex(tolong(scWin32Status))
+// Map common win32 codes
+| extend scWin32Status_Friendly = case(
+scWin32Status_Hex =~ "775", "The referenced account is currently locked out and cannot be logged on to.",
+scWin32Status_Hex =~ "52e", "Logon failure: Unknown user name or bad password.",
+scWin32Status_Hex =~ "532", "Logon failure: The specified account password has expired.",
+scWin32Status_Hex =~ "533", "Logon failure: Account currently disabled.",
+scWin32Status_Hex =~ "2ee2", "The request has timed out.",
+scWin32Status_Hex =~ "0", "The operation completed successfully.",
+scWin32Status_Hex =~ "1", "Incorrect function.",
+scWin32Status_Hex =~ "2", "The system cannot find the file specified.",
+scWin32Status_Hex =~ "3", "The system cannot find the path specified.",
+scWin32Status_Hex =~ "4", "The system cannot open the file.",
+scWin32Status_Hex =~ "5", "Access is denied.",
+scWin32Status_Hex =~ "8009030e", "SEC_E_NO_CREDENTIALS",
+scWin32Status_Hex =~ "8009030C", "SEC_E_LOGON_DENIED",
+"See - https://msdn.microsoft.com/library/cc231199.aspx")
+// decode URI when available
+| extend decodedUriQuery = url_decode(csUriQuery)
+// Count of attempts by client IP on many ports
+| summarize makeset(sPort), makeset(decodedUriQuery), makeset(csUserName), makeset(sSiteName), makeset(sPort), makeset(csUserAgent), makeset(csMethod), makeset(csUriQuery), makeset(scStatusFull), makeset(scStatusFull_Friendly), makeset(scWin32Status_Hex), makeset(scWin32Status_Friendly), ConnectionsCount = count() by bin(TimeGenerated, timeBin), cIP, Computer, sIP
+| extend portCount = arraylength(set_sPort)
+| where portCount >= portThreshold
+| where cIP in (TestIPaddress)
+| project TimeGenerated, cIP, set_sPort, set_csUserName, set_decodedUriQuery, Computer, set_sSiteName, sIP, set_csUserAgent, set_csMethod, set_scStatusFull, set_scStatusFull_Friendly, set_scWin32Status_Hex, set_scWin32Status_Friendly, ConnectionsCount, portCount
+| order by portCount
+ ```
 
 5. Save하여 완료합니다.
 

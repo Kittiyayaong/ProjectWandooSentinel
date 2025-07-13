@@ -24,9 +24,7 @@ Sentinel 내에서 특정 데이터(예: IP, 사용자, 해시 등)를 참조 �
 2. 정보를 기입합니다.
      * Name: TestsIPaddresses
      * Description: IP addresses used during penetration tests
-     * Watchlist Alias: TestIPaddresses
-
-    <img src="https://github.com/user-attachments/assets/8c73ce24-088f-41eb-9296-ecfbef61f826" width="600">
+     * Watchlist Alias: TestsIPaddresses
 
 3. [CSV 파일](https://github.com/Kittiyayaong/ProjectWandooSentinel/blob/main/WandooCSV/TestIPaddress.csv)을 다운로드 받아서, 업로드 합니다. Searchkey는 **IPAddress**로 설정하여 create합니다.
 

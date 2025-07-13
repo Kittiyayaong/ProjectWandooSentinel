@@ -1,6 +1,21 @@
 # Module 3. Watchlists
 
-### Lab 1. Watchlist 생성하기 
+## Watchlist
+Sentinel 내에서 특정 데이터(예: IP, 사용자, 해시 등)를 참조 리스트로 저장하여 분석 규칙, 쿼리, 헌팅 등에서 활용할 수 있도록 지원하는 기능입니다.
+
+* 활용 예시
+  * 내부 테스트/침투 테스트 IP를 사전에 등록하여 탐지 제외 처리
+  * 특정 VIP 사용자, 관리자 계정 등을 우선 감시 또는 예외 처리 가능
+  * 향후 Logic App 또는 Workbook 시각화에서 Watchlist 연동 가능
+
+---
+
+## Lab 1: Watchlist 생성하기
+
+### 목적
+* 침투 테스트나 차단 대상 IP 목록 등을 **CSV로 등록**하여 Sentinel 내에서 탐지 제외 또는 강조 대상으로 활용
+
+### 실습 단계
 
 1. Sentinel > Configuration > Watchlist > 상단에 **New**를 클릭합니다.
 
@@ -19,8 +34,15 @@
 
 4. 생성 이후 5분 후에 Watchlist에 올라오게됩니다.
 
+---
 
-### Lab 2. 분석 규칙에 IP 주소 화이트리스트 추가하기 (Watchlist를 활용한 실전 탐지 자동화(Analytics Rule)로 연결하기)
+## Lab 2: Watchlist를 활용한 Analytics Rule 설정 (분석 규칙에 IP 주소 화이트리스트 추가하기 (Watchlist를 활용한 실전 탐지 자동화(Analytics Rule)로 연결하기)
+
+### 목적
+* 기존에 설치된 Analytics Rule에 Watchlist 기반 필터 추가
+  * 예: 침투 테스트용 IP는 제외 또는 필터링 처리
+
+### 실습 단계
 
 1. Contents Hub에서 **High count of connection**을 클릭하여 install합니다.
 

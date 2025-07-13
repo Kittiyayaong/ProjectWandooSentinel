@@ -76,3 +76,5 @@ Microsoft Sentinel에 데이터를 수집하고 통합하기 위해 사용되는
 5. 이 과정을 통해 위협 인텔리전스 지표가 `ThreatIntelligenceIndicator` 테이블에 수집되기 시작합니다. 
 
 
+
+### 🔗 [다음 Lab으로 이동하기 »]()
